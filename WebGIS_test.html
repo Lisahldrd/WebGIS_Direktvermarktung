@@ -100,43 +100,43 @@
   }
 
   <!-- Points -->
-  var Automat = L.geoJSON(adr, {
+  var Automat = L.geoJSON(Adr, {
   filter: Automat,
    pointToLayer: function (feature, latlng) {
    return L.circleMarker(latlng, newMarker);
    }}).addTo(WebGIS_test);
   
-  var Brennerei = L.geoJSON(adr, {
+  var Brennerei = L.geoJSON(Adr, {
   filter: Brennerei,
    pointToLayer: function (feature, latlng) {
    return L.circleMarker(latlng, newMarker);
    }}).addTo(WebGIS_test);
   
-  var abHaustüre = L.geoJSON(adr, {
+  var abHaustüre = L.geoJSON(Adr, {
   filter: abHaustüre,
    pointToLayer: function (feature, latlng) {
    return L.circleMarker(latlng, newMarker);
    }}).addTo(WebGIS_test);
   
-  var Selbstbedienung = L.geoJSON(adr, {
+  var Selbstbedienung = L.geoJSON(Adr, {
   filter: Selbstbedienung,
    pointToLayer: function (feature, latlng) {
    return L.circleMarker(latlng, newMarker);
    }}).addTo(WebGIS_test);
   
-  var Hofladen = L.geoJSON(adr, {
+  var Hofladen = L.geoJSON(Adr, {
   filter: Hofladen,
    pointToLayer: function (feature, latlng) {
    return L.circleMarker(latlng, newMarker);
    }}).addTo(WebGIS_test);
   
-  var abHof = L.geoJSON(adr, {
+  var abHof = L.geoJSON(Adr, {
   filter: abHof,
    pointToLayer: function (feature, latlng) {
    return L.circleMarker(latlng, newMarker);
    }}).addTo(WebGIS_test);
 
-  var overlay_adr = new L.geoJSON(adr, {
+  var overlay_adr = new L.geoJSON(Adr, {
    pointToLayer: function (feature, latlng) {
    return L.circleMarker(latlng, newMarker);
    }}).addTo(WebGIS_test);
