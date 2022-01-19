@@ -165,6 +165,31 @@
   <!-- Scale control -->
   var scale = L.control.scale({maxWidth: 150, metric: true, imperial: true}).addTo(WebGIS_test);
  
+// Schleife durch das Adressen Array 
+for (var i = 0; i < Adr.features.length ; i++){
+  // setze seller auf den aktuellen Verkäufer mit 'seller' kann man auf die jeweiligen features zugreifen
+  var seller = adr.features[i];
+
+  // Füge Marker an Koordinate des jeweilgen Punktes ein (Koordinaten falschrum deshalb reverse)
+  L.marker(seller.geometry.coordinates.reverse()).addTo(WebGIS_test)
+
+   // Erstellen Popup Fenster + Wahl der Daten die dargestellt werden 
+  .bindPopup(`<h3> ${seller.properties.Betriebsna} </h3>
+              <p>Art von Verkauf: ${seller.properties.Verkauf} </p>
+              ${seller.properties.Wochenmark === null ? '' : '<p> Wochenmarkt: '+seller.properties.Wochenmark+'</p>'} 
+              <p>Produkte: ${seller.properties.Lebensmittelkategorien} </p>
+              ${seller.properties.Anbau === null ? '' : '<p> Anbau: '+seller.properties.Anbau+'</p>'}
+              <p>Öffnungszeiten: ${seller.properties.Öffnungsze} </p>
+              <p>Kontakt: <ul>  <li>${seller.properties.Vorname} ${seller.properties.Nachname}</li>
+                                <li>${seller.properties.KontaktStr}</li>
+                                <li>${seller.properties.KontaktPLZ} ${seller.properties.KontaktOrt} ${seller.properties.KontaktTei}</li>
+                                <li>${seller.properties.EMail}</li>
+                                <li>${seller.properties.Telefon}</li>
+                                ${seller.properties.Homepage === null ? '' : '<li><a href=https://'+seller.properties.Homepage+' target="_blank">'+seller.properties.Homepage+'</a></li>'} 
+                                </ul>`)
+  .openPopup();
+
+}
 
 
  </script>
